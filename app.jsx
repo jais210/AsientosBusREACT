@@ -103,10 +103,7 @@ const App2 = props => {
             <div id="listar" className="tab-pane fade">
                 {listar(props.items)}
         </div>
-    </div>               
-                         
-    
-  );
+  </div>);
 }
 
 ReactDOM.render(<App2 items={asientos} />, document.getElementById('root'));
