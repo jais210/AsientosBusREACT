@@ -81,29 +81,29 @@ let pasajeros = [{
 },
 ];
 
-const App = ({ pasajeros, title, seats }) => {
+const AppPasajeros = ({ pasajeros, title, seats }) => {
     return (
       <div className="container">
         <div className="text-center header"  ><h1>{title}</h1></div>
         <RTable seats={seats} />
         <div>
           <div className='row tablaPasajeros'>
-            <div className='col col-xl-2 col-sm-2'>Nro Asiento</div>
+            <div className='col col-xl-2 col-sm-2'>Asiento</div>
             <div className='col col-xl-5 col-sm-5'>Nombres y apellidos</div>
-            <div className='col col-xl-2 col-sm-2'>Nro DNI</div>
+            <div className='col col-xl-2 col-sm-2'>DNI</div>
           </div>
-          <ListarPasajeros pasajeros={pasajeros} />
+          <ListaPasajeros pasajeros={pasajeros} />
         </div>
       </div>
     );
   }
 
-const ListarPasajeros = (props) => {
+const ListaPasajeros = (props) => {
     let lista = props.pasajeros.map((elemento, index) => {
       return (<div className="row">
-        <div className="col col-xl-2 col-sm-2">{elemento.nroAsiento}</div>
-        <div className="col col-xl-5 col-sm-5">{elemento.nombre}</div>
-        <div className="col col-xl-2 col-sm-2">{elemento.dni}</div>
+        <div className="col col-xl-2 col-sm-2">{elemento.index}</div>
+        <div className="col col-xl-5 col-sm-5">{elemento.index}</div>
+        <div className="col col-xl-2 col-sm-2">{elemento.index}</div>
       </div>);
     });
     return (lista);
@@ -114,5 +114,10 @@ const ListarPasajeros = (props) => {
 
 ReactDOM.render(
     <h1>Hello, world!</h1>,
-    document.getElementById('pasajeros')
+    document.getElementById('root')
+  );
+
+  ReactDOM.render(
+    <AppPasajeros pasajeros={pasajeros} title={'Reserva tu Asiento'} seats={seats} />,
+    document.getElementById("pasajeros")
   );
