@@ -36,11 +36,11 @@ function listPairs (seats) {
 const App1 = ({title, seats}) => {
    return (
       <div>
-         <RTable  seats = {seats}/>
+         {/* <RTable  seats = {seats}/> */} 
        
-         <h3>  {title}</h3>
+         {/* <h3>  {title}</h3> */}
          <ol>
-            {listPairs (seats)}
+            {/* {listPairs (seats)} */}
          </ol>
       </div>
    );
@@ -81,18 +81,36 @@ let pasajeros = [{
 },
 ];
 
+const App = ({ pasajeros, title, seats }) => {
+    return (
+      <div className="container">
+        <div className="text-center header"  ><h1>{title}</h1></div>
+        <RTable seats={seats} />
+        <div>
+          <div className='row tablaPasajeros'>
+            <div className='col col-xl-2 col-sm-2'>Nro Asiento</div>
+            <div className='col col-xl-5 col-sm-5'>Nombres y apellidos</div>
+            <div className='col col-xl-2 col-sm-2'>Nro DNI</div>
+          </div>
+          <ListarPasajeros pasajeros={pasajeros} />
+        </div>
+      </div>
+    );
+  }
+
+const ListarPasajeros = (props) => {
+    let lista = props.pasajeros.map((elemento, index) => {
+      return (<div className="row">
+        <div className="col col-xl-2 col-sm-2">{elemento.nroAsiento}</div>
+        <div className="col col-xl-5 col-sm-5">{elemento.nombre}</div>
+        <div className="col col-xl-2 col-sm-2">{elemento.dni}</div>
+      </div>);
+    });
+    return (lista);
+  }
+
 // Empezando REACT
-// COMPONENTE TODO
-// const MostrarPasajeros ({html})=>{
-  
-// }
 
-
-
-// ReactDOM.render ( 
-//    <MostrarPasajeros pasajeros= {html}/>, 
-//    document.getElementById("pasajeros")
-// ); 
 
 ReactDOM.render(
     <h1>Hello, world!</h1>,
